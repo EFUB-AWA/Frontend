@@ -193,3 +193,227 @@ body {
   align-items: flex-start;
   gap: 16px;
 }
+
+.button-brand {
+  background: #186ded;
+  color: #ffffff;
+}
+
+.listing-new {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  min-height: 976px;
+  padding-bottom: 70px;
+}
+
+.listing-head {
+  position: relative;
+  height: 49px;
+  margin-top: 32px;
+}
+
+.listing-back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: #2c303d;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  text-decoration: none;
+}
+
+.listing-back img {
+  display: block;
+  width: 18px;
+  height: 18px;
+}
+
+.listing-title {
+  margin: 16px 0 0;
+  color: #0f0f0f;
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 33px;
+  text-align: center;
+}
+
+.listing-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  width: 900px;
+  max-width: 100%;
+  margin: 48px auto 0;
+}
+
+.listing-address {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.field-help {
+  margin: 0;
+  color: #656a7a;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 22px;
+}
+
+.field-control {
+  position: relative;
+  width: 100%;
+}
+
+.field-input-suffix {
+  padding-right: 48px;
+}
+
+.field-input-money {
+  padding-right: 108px;
+}
+
+.field-suffix {
+  position: absolute;
+  top: 50%;
+  right: 12px;
+  color: #656a7a;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  pointer-events: none;
+  transform: translateY(-50%);
+}
+
+.field-search {
+  position: absolute;
+  top: 50%;
+  right: 12px;
+  display: flex;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  transform: translateY(-50%);
+}
+
+.field-search img {
+  display: block;
+  width: 24px;
+  height: 24px;
+}
+
+.listing-map {
+  width: 100%;
+  height: 289px;
+  overflow: hidden;
+  border: 1px solid #f2f3f5;
+  border-radius: 8px;
+}
+
+.initial-fund {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 24px 20px;
+  border-radius: 8px;
+  background: #f5f7fa;
+}
+
+.initial-fund-heading {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  color: #0f0f0f;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 22px;
+}
+
+.initial-fund-heading img {
+  display: block;
+  width: 24px;
+  height: 24px;
+}
+
+.initial-fund-tag {
+  padding: 4px 6px;
+  border-radius: 4px;
+  background: #eaecf1;
+  color: #656a7a;
+  font-size: 10px;
+  font-weight: 600;
+  line-height: 11px;
+}
+
+.initial-fund-divider {
+  height: 0;
+  margin: 0;
+  border: 0;
+  border-top: 1px solid #d5d9e4;
+}
+
+.initial-fund-price {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.initial-fund-total {
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+  margin: 0;
+  padding-left: 4px;
+  color: #656a7a;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 22px;
+}
+
+.initial-fund-amount {
+  display: inline-flex;
+  align-items: flex-end;
+  gap: 4px;
+  color: #0f0f0f;
+}
+
+.initial-fund-amount strong {
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 29px;
+}
+
+.initial-fund-amount span {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 22px;
+}
+
+.initial-fund-formula {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 4px;
+  margin: 0;
+  padding-right: 12px;
+  color: #656a7a;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+}
+
+.listing-submit {
+  display: flex;
+  justify-content: center;
+  margin-top: auto;
+  padding-top: 58px;
+}
