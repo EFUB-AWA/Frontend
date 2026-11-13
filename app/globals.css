@@ -193,3 +193,177 @@ body {
   align-items: flex-start;
   gap: 16px;
 }
+
+/*여기서부턴 analysis-loading 관련 css*/
+
+.analysis-loading {
+  position: relative;
+  box-sizing: border-box;
+  min-height: 836px;
+  margin: 0 -120px;
+}
+
+.analysis-blobs {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.analysis-blob img {
+  display: block;
+  width:100%;
+  height : 100%;
+  max-width: none;
+}
+
+.analysis-blob-left {
+  position: absolute;
+  left: -264px;
+  top: 98px;
+  width: 766px;
+  height: 780px;
+}
+
+.analysis-blob-right {
+  position: absolute;
+  right: -161px;
+  top: 39px;
+  width: 620px;
+  height: 640px;
+}
+
+.analysis-loading-body {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 151px;
+}
+
+.analysis-loading-title {
+  margin: 0;
+  color: #0f0f0f;
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 33px;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.analysis-dots {
+  position: relative;
+  width: 116px;
+  height: 20px;
+  margin-top: 67px;
+}
+
+.analysis-dot {
+  position: absolute;
+  top: 0;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #92cefe;
+  transition: transform 180ms ease, background-color 180ms ease;
+}
+
+.analysis-dot:nth-child(1) {
+  left: 0;
+}
+
+.analysis-dot:nth-child(2) {
+  left: 48px;
+}
+
+.analysis-dot:nth-child(3) {
+  left: 96px;
+}
+
+.analysis-dot.is-active {
+  background: #186ded;
+  transform: translateY(-13px);
+}
+
+.analysis-card {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 408px;
+  margin-top: 67px;
+  padding: 24px 20px;
+  border-radius: 8px;
+  background: #f5f7fa;
+}
+
+.analysis-card-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  color: #0f0f0f;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 22px;
+}
+
+.analysis-card-title img {
+  display: block;
+  width: 24px;
+  height: 24px;
+}
+
+.analysis-card-divider {
+  height: 0;
+  margin: 0;
+  border: 0;
+  border-top: 1px solid #d5d9e4;
+}
+
+.analysis-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.analysis-step {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #0f0f0f;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+}
+
+.analysis-step-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+}
+
+.analysis-step-icon img {
+  display: block;
+}
+
+.analysis-live {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+
