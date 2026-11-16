@@ -193,3 +193,665 @@ body {
   align-items: flex-start;
   gap: 16px;
 }
+
+/* 피그마 BreadCrumb. 아이콘 18, 글자 14/20, 간격 4 */
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: #2c303d;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  cursor: pointer;
+}
+
+.breadcrumb img {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
+/* 피그마 TitleSection. 제목 칸 높이 33, 부제와 간격 12 */
+.analysis-title {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.analysis-title-heading {
+  margin: 0;
+  color: #0f0f0f;
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 33px;
+}
+
+.analysis-title-name {
+  color: #186ded;
+}
+
+/* 피그마 SubTitle. 16/22, 점과 간격 6 */
+.analysis-title-sub {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: 0;
+  color: #656a7a;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 22px;
+}
+
+.analysis-title-sub img {
+  width: 3px;
+  height: 3px;
+  flex-shrink: 0;
+}
+
+/* 피그마 TabGroup. 1440 기준 내용 가로 1200이라 .page 안에서는 100% */
+.tab-group {
+  display: flex;
+  align-items: flex-end;
+  width: 100%;
+  border-bottom: 2px solid #f2f3f5;
+}
+
+/* 피그마 TabItem. 가로 176, 높이 46. 아래 선 2px는 그룹 선 위에 겹침 */
+.tab-item {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 176px;
+  height: 46px;
+  margin: 0 0 -2px;
+  padding: 12px 18px 10px;
+  border: 0;
+  border-bottom: 2px solid #eaecf1;
+  background: transparent;
+  color: #0f0f0f;
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 22px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.tab-item:hover:not(.tab-item-selected) {
+  border-bottom-color: #aeb5c8;
+}
+
+.tab-item-selected {
+  border-bottom-color: #186ded;
+  color: #186ded;
+  font-weight: 600;
+}
+
+/* 피그마 SummaryContainer. 카드 사이 12 */
+.summary-row {
+  display: flex;
+  align-items: stretch;
+  gap: 12px;
+  width: 100%;
+}
+
+/* 피그마 분석 요약. 배경 #f5f7fa, 모서리 12, 패딩 16 24 */
+.summary-card {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  min-width: 0;
+  padding: 16px 24px;
+  border-radius: 12px;
+  background: #f5f7fa;
+}
+
+.summary-card-label {
+  margin: 0;
+  color: #2c303d;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+}
+
+.summary-card-value {
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+  margin: 0;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 29px;
+}
+
+.summary-card-danger {
+  color: #ff4747;
+}
+
+.summary-card-caution {
+  color: #f59e0b;
+}
+
+.summary-card-stable {
+  color: #00bf63;
+}
+
+.summary-card-brand {
+  color: #186ded;
+}
+
+.summary-card-suffix {
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 20px;
+}
+
+/* 피그마 Content > Container. fill은 회색 박스, line은 흰 테두리 박스 */
+.analysis-panel {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 20px 32px;
+  border-radius: 8px;
+}
+
+.analysis-panel-fill {
+  background: #f5f7fa;
+}
+
+.analysis-panel-line {
+  border: 1px solid #eaecf1;
+  background: #ffffff;
+}
+
+.analysis-panel-row {
+  display: flex;
+  align-items: flex-end;
+  gap: 4px;
+}
+
+.analysis-panel-list {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+/* 피그마 SelectButton. 높이 36, 가로 패딩 20, 모서리 8 */
+.select-button {
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 36px;
+  margin: 0;
+  padding: 0 20px;
+  border: 1px solid #d5d9e4;
+  border-radius: 8px;
+  background: #ffffff;
+  color: #656a7a;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 20px;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.select-button-selected {
+  border-color: #186ded;
+  color: #186ded;
+}
+
+/* 이 화면 인스턴스 가로 110. 컴포넌트 원본 샘플은 180 */
+.select-button-compact {
+  width: 110px;
+}
+
+/* 피그마 Input 인스턴스. 이 화면은 110 x 36 */
+.percent-input {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 110px;
+  height: 36px;
+  padding: 6px 12px;
+  border: 1px solid #d5d9e4;
+  border-radius: 8px;
+  background: #ffffff;
+}
+
+.percent-input input {
+  flex: 1;
+  min-width: 0;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  outline: none;
+  background: transparent;
+  color: #0f0f0f;
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 22px;
+}
+
+.percent-input input::placeholder {
+  color: #9097ac;
+  font-weight: 500;
+}
+
+.percent-input-suffix {
+  flex-shrink: 0;
+  color: #656a7a;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+}
+
+/* 피그마 Toast. 저장 완료 알림. 에러는 #ff4747 */
+.save-notice {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  max-width: 361px;
+  padding: 14px 20px;
+  border-radius: 16px;
+  background: rgba(15, 15, 15, 0.8);
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 22px;
+  white-space: nowrap;
+}
+
+.save-notice-error {
+  background: #ff4747;
+}
+
+.save-notice img {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+}
+
+/* 피그마 Modal. 가로 347, 패딩 32, 간격 24, 모서리 12 */
+.confirm-modal-layer {
+  position: fixed;
+  inset: 0;
+  z-index: 30;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  padding: 16px;
+}
+
+.confirm-modal {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  width: min(347px, 100%);
+  padding: 32px;
+  border-radius: 12px;
+  background: #ffffff;
+  box-shadow:
+    0 16px 32px rgba(12, 12, 13, 0.1),
+    0 4px 4px rgba(12, 12, 13, 0.05);
+}
+
+.confirm-modal-title {
+  width: 100%;
+  margin: 0;
+  color: #0f0f0f;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 22px;
+  text-align: center;
+}
+
+.confirm-modal-body {
+  width: 100%;
+  margin: 0;
+  color: #0f0f0f;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 22px;
+  text-align: center;
+  white-space: pre-line;
+}
+
+.confirm-modal-actions {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  width: min(292px, calc(100% + 9px));
+}
+
+.confirm-modal-actions .button {
+  width: 140px;
+  max-width: calc(50% - 6px);
+  flex: 1 1 140px;
+  min-width: 0;
+  line-height: 20px;
+}
+
+/* 매물별 분석 결과. 상단 메뉴 아래 32, 제목 묶음 12, 구간 사이 32, 버튼 아래 70 */
+.analysis-result {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  width: 100%;
+  padding-top: 32px;
+  padding-bottom: 70px;
+}
+
+.analysis-result-head {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+}
+
+/* 피그마 Content. 제목 18/22, 내용과 간격 16 */
+.analysis-block {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+}
+
+.analysis-block-title {
+  margin: 0;
+  color: #0f0f0f;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 22px;
+}
+
+.analysis-chart {
+  position: relative;
+  box-sizing: border-box;
+  width: 100%;
+  height: 171px;
+  border: 1px solid #eaecf1;
+  border-radius: 8px;
+  background: #ffffff;
+  overflow: hidden;
+}
+
+.analysis-chart-tall {
+  height: 229px;
+}
+
+.analysis-panel-strong {
+  color: #186ded;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 29px;
+}
+
+.analysis-panel-note {
+  display: block;
+  color: #2c303d;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 22px;
+}
+
+/* 손익분기점 아래에서 버튼까지 105. 그 사이에 저장 알림이 들어간다 */
+.analysis-actions {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  width: 100%;
+  margin-top: 73px;
+}
+
+/* 스트레스 테스트는 저장 알림 자리가 없다. 시나리오 칸 아래에서 버튼까지 86 */
+.analysis-actions-near {
+  margin-top: 54px;
+}
+
+/* 피그마 ButtonArea. 선택 버튼과 직접 입력 사이 8 */
+.stress-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+}
+
+/* 시나리오 비교는 내용이 없다. 칸 높이만 한 줄짜리 프레임과 같게 둔다 */
+.analysis-panel-slot {
+  display: block;
+  height: 22px;
+}
+
+/* 피그마 TextContainer. 체크 20, 글자 16/22, 간격 8 */
+.insight-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  margin: 0;
+  color: #0f0f0f;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 22px;
+}
+
+.insight-row img {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+.analysis-save-slot {
+  position: absolute;
+  left: 50%;
+  bottom: calc(100% + 26px);
+  transform: translateX(-50%);
+}
+
+.fund-axis,
+.fund-plot {
+  position: absolute;
+  left: 9.083%;
+  width: 79.417%;
+}
+
+.fund-axis {
+  top: 6px;
+  height: 18px;
+}
+
+.fund-tick {
+  position: absolute;
+  top: 0;
+  color: #656a7a;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 18px;
+  transform: translateX(-50%);
+}
+
+.fund-plot {
+  top: 27px;
+  height: 124px;
+}
+
+.fund-grid {
+  position: absolute;
+  top: 0;
+  width: 1px;
+  height: 100%;
+  background: #d5d9e4;
+  transform: translateX(-0.5px);
+}
+
+.fund-rows {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.fund-row {
+  position: relative;
+  height: 14px;
+}
+
+.fund-label {
+  position: absolute;
+  top: 0;
+  right: calc(100% + 20px);
+  color: #656a7a;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 14px;
+  white-space: nowrap;
+}
+
+.fund-bar {
+  display: block;
+  height: 14px;
+  border-radius: 0 9999px 9999px 0;
+  background: linear-gradient(90deg, #dbedfe, #3892f9);
+}
+
+.fund-value {
+  position: absolute;
+  top: 1px;
+  color: #656a7a;
+  font-size: 10px;
+  font-weight: 400;
+  line-height: 11px;
+  white-space: nowrap;
+}
+
+.chart-key {
+  position: absolute;
+  top: 100px;
+  left: 91.083%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  width: 90px;
+  padding: 8px;
+  border-radius: 8px;
+  background: #f5f7fa;
+  color: #656a7a;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 18px;
+  text-align: center;
+}
+
+.chart-key-lower {
+  top: 106px;
+}
+
+.fund-swatch {
+  width: 14px;
+  height: 14px;
+  border-radius: 4px;
+  background: linear-gradient(90deg, #dbedfe, #3892f9);
+}
+
+.month-grid-x {
+  position: absolute;
+  left: 9.083%;
+  width: 79.5%;
+  height: 1px;
+  background: repeating-linear-gradient(90deg, #d5d9e4 0 2px, transparent 2px 4px);
+}
+
+.month-grid-y {
+  position: absolute;
+  top: 27px;
+  width: 1px;
+  height: 102px;
+  background: #d5d9e4;
+  transform: translateX(-0.5px);
+}
+
+.month-ylabel {
+  position: absolute;
+  right: 92.583%;
+  color: #656a7a;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 14px;
+  white-space: nowrap;
+  transform: translateY(-50%);
+}
+
+.month-xlabel {
+  position: absolute;
+  top: 135px;
+  color: #656a7a;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 18px;
+  white-space: nowrap;
+  transform: translateX(-50%);
+}
+
+.month-chart-line {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 171px;
+}
+
+.month-chart-dot {
+  position: absolute;
+  box-sizing: border-box;
+  width: 8px;
+  height: 8px;
+  margin-top: -4px;
+  margin-left: -4px;
+  border: 2px solid;
+  border-radius: 50%;
+  background: #ffffff;
+}
+
+.month-chart-pills {
+  position: absolute;
+  top: 173px;
+  right: 14px;
+  display: flex;
+  gap: 12px;
+}
+
+.month-chart-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  background: #f5f7fa;
+  color: #656a7a;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 18px;
+  white-space: nowrap;
+}
