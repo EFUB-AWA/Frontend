@@ -105,7 +105,7 @@ export function AnalysisLoading({ title, cardTitle, steps, nextHref, whenReady }
             {steps.map((step, index) => {
               const done = index < completed;
               return (
-                <li key={step} className="analysis-step">
+                <li key={`${index}-${step}`} className="analysis-step">
                   <span className="analysis-step-icon">
                     <img src={done ? "/icon.svg/tick-circle-blue.svg" : "/icon.svg/check-gray.svg"} alt={done ? "완료" : "대기"} />
                   </span>

@@ -14,14 +14,22 @@ function AnalysisLoadingScreen() {
   const name = params.get("name");
 
   if (isCompare) {
-    return (
-      <AnalysisLoading
-        title="어떤 매물이 현재 상황에 더 적합한지 비교하고 있어요."
-        cardTitle={name || "비교 분석 이름"}
-        steps={compareSteps}
-      />
-    );
-  }
+  const items = params.getAll("item");
+  const next = new URLSearchParams();
+  if (name) next.set("name", name);
+  items.forEach((item) => next.append("item", item));
+
+  return (
+    <AnalysisLoading
+      title="어떤 매물이 현재 상황에 더 적합한지 비교하고 있어요."
+      cardTitle={name || "비교 분석 이름"}
+      steps={items.length > 0 ? items : compareSteps}
+      nextHref={`/compare/result?${next.toString()}`}
+    />
+  );
+}
+
+
 
   return (
     <AnalysisLoading
@@ -40,3 +48,7 @@ export default function AnalysisLoadingPage() {
     </Suspense>
   );
 }
+
+/*http://localhost:3000/analysis/loading는 매물 분석 --> 끝나면 /analysis/1로 이동*/
+/*http://localhost:3000/analysis/loading?flow=compare 는 비교 분석*/
+/*http://localhost:3000/analysis/loading?flow=compare&name=비교이름 은 카드 제목만 비교이름으로 바뀜*/
