@@ -39,6 +39,120 @@ const emptyDraft: ListingDraft = {
   monthly_maintenance_fee: "",
 };
 
+type CreatePropertyBody = {
+  startupConditionId: number;
+  name: string;
+  address: string;
+  addressDetail: string;
+  latitude: number;
+  longitude: number;
+  areaM2: number;
+  deposit: number;
+  monthlyRent: number;
+  keyMoney: number;
+  monthlyManagementFee: number;
+};
+
+type CreatePropertyResponse = {
+  propertyId: number;
+  mappingStatus: "MAPPED" | "FAILED";
+  createdAt: string;
+};
+
+type PropertyErrorBody = {
+  timestamp: string;
+  status: number;
+  error: string;
+  code: string;
+  message: string;
+  path: string;
+};
+
+function manWonToWon(value: string) {
+  return moneyAmount(value) * 10000;
+}
+
+function createPropertyBody(
+  draft: ListingDraft,
+  point: MapPoint,
+  startupConditionId: number,
+): CreatePropertyBody | null {
+  const areaM2 = Number(draft.area_m2);
+  const deposit = manWonToWon(draft.deposit);
+  const monthlyRent = manWonToWon(draft.monthly_rent);
+  const keyMoney = manWonToWon(draft.key_money);
+  const monthlyManagementFee = manWonToWon(draft.monthly_maintenance_fee);
+
+  if (areaM2 <= 0 || deposit <= 0 || monthlyRent <= 0 || keyMoney < 0 || monthlyManagementFee < 0) {
+    return null;
+  }
+
+  return {
+    startupConditionId,
+    name: draft.name,
+    address: draft.address,
+    addressDetail: draft.addressDetail,
+    latitude: point.lat,
+    longitude: point.lng,
+    areaM2,
+    deposit,
+    monthlyRent,
+    keyMoney,
+    monthlyManagementFee,
+  };
+}
+
+type StartupConditionResponse = {
+  startupConditionId: number;
+  title: string;
+  industryId: number;
+  industryName: string;
+  preferredRegionCode: string;
+  preferredRegionName: string;
+  totalCapital: number;
+  availableCapital: number;
+  loanAmount: number;
+  monthlyLaborCost: number;
+  costOfSalesRate: number;
+  monthlyOtherOperatingCost: number;
+  monthlyTotalOperatingCost: number;
+  createdAt: string;
+  updatedAt: string;
+};
+
+async function getMyStartupCondition(accessToken: string) {
+  const response = await fetch("/api/startup-conditions/me", {
+    method: "GET",
+    headers: {
+      Authorization: `Bearer ${accessToken}`,
+    },
+  });
+
+  if (response.status !== 200) return null;
+
+  const startupCondition = (await response.json()) as StartupConditionResponse;
+  return startupCondition;
+}
+
+async function createProperty(body: CreatePropertyBody, accessToken: string) {
+  const response = await fetch("/api/properties", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${accessToken}`,
+    },
+    body: JSON.stringify(body),
+  });
+
+  if (response.status === 201) {
+    const created = (await response.json()) as CreatePropertyResponse;
+    return { ok: true as const, created };
+  }
+
+  const failed = (await response.json()) as PropertyErrorBody;
+  return { ok: false as const, status: response.status, failed };
+}
+
 const contractFields = [
   { key: "deposit", label: "보증금" },
   { key: "monthly_rent", label: "월세" },
@@ -305,6 +419,37 @@ export default function NewListingPage() {
     }).open();
   }
 
+async function registerProperty() {
+  const accessToken: string | null = null;
+  if (!mapPoint || accessToken === null) return;
+
+  const startupCondition = await getMyStartupCondition(accessToken);
+  if (!startupCondition) return;
+
+  const body = createPropertyBody(draft, mapPoint, startupCondition.startupConditionId);
+  if (!body) return;
+
+  const result = await createProperty(body, accessToken);
+  if (!result.ok) return;
+
+  router.push("/analysis/loading");
+}
+
+type KakaoLoginResponse = {
+  accessToken: string;
+  tokenType: string;
+  expiresIn: number;
+  isNewUser: boolean;
+  user: {
+    userId: number;
+    nickname: string;
+    email: string;
+    profileImageUrl: string;
+  };
+};
+
+
+
   const title = step === "location" ? "분석할 매물의 위치를 알려주세요." : "매물의 계약 조건을 입력해주세요.";
 
   return (
@@ -327,7 +472,7 @@ export default function NewListingPage() {
         {step === "location" ? (
           <Button onClick={() => setStep("contract")}>다음으로</Button>
         ) : (
-          <Button variant="brand" onClick={() => router.push("/analysis/loading")}>
+          <Button variant="brand" onClick={() => void registerProperty()}>
             분석 시작하기
           </Button>
         )}
